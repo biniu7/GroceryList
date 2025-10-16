@@ -1,4 +1,4 @@
-# Analiza Stosu Technologicznego - GroceryList MVP
+ # Analiza Stosu Technologicznego - GroceryList MVP
 
 Data: 2025-10-15
 Wersja: 1.0
