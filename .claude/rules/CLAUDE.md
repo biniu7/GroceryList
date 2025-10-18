@@ -1,36 +1,38 @@
-# AI Rules for {{project-name}}
+# AI Rules for GroceryList
 
 GroceryList is an MVP application for creating grocery shopping lists based on recipes assigned to specific days and meals (breakfast, second breakfast, lunch, dinner). The app features a weekly calendar, recipe management, and PDF/TXT export functionality.
 
 
-## CODING_PRACTICES
-
-### Guidelines for SUPPORT_LEVEL
-
-#### SUPPORT_BEGINNER
-
-- When running in agent mode, execute up to 3 actions at a time and ask for approval or course correction afterwards.
-- Write code with clear variable names and include explanatory comments for non-obvious logic. Avoid shorthand syntax and complex patterns.
-- Provide full implementations rather than partial snippets. Include import statements, required dependencies, and initialization code.
-- Add defensive coding patterns and clear error handling. Include validation for user inputs and explicit type checking.
-- Suggest simpler solutions first, then offer more optimized versions with explanations of the trade-offs.
-- Briefly explain why certain approaches are used and link to relevant documentation or learning resources.
-- When suggesting fixes for errors, explain the root cause and how the solution addresses it to build understanding. Ask for confirmation before proceeding.
-- Offer introducing basic test cases that demonstrate how the code works and common edge cases to consider.
-
-
-### Guidelines for VERSION_CONTROL
-
-#### GIT
-
-- Use conventional commits to create meaningful commit messages
-- Use feature branches with descriptive names following {{branch_naming_convention}}
-- Write meaningful commit messages that explain why changes were made, not just what
-- Keep commits focused on single logical changes to facilitate code review and bisection
-- Use interactive rebase to clean up history before merging feature branches
-- Leverage git hooks to enforce code quality checks before commits and pushes
-
 ## FRONTEND
+
+### Guidelines for ASTRO
+
+#### ASTRO_CODING_STANDARDS
+
+- Use Astro components (.astro) for static content and layout
+- Implement framework components in {{framework_name}} only when interactivity is needed
+- Leverage View Transitions API for smooth page transitions
+- Use content collections with type safety for blog posts, documentation, etc.
+- Implement middleware for request/response modification
+- Use image optimization with the Astro Image integration
+- Leverage Server Endpoints for API routes
+- Implement hybrid rendering with server-side rendering where needed
+- Use Astro.cookies for server-side cookie management
+- Leverage import.meta.env for environment variables
+
+#### ASTRO_ISLANDS
+
+- Use client:visible directive for components that should hydrate when visible in viewport
+- Implement shared state with nanostores instead of prop drilling between islands
+- Use content collections for type-safe content management of structured content
+- Leverage client:media directive for components that should only hydrate at specific breakpoints
+- Implement partial hydration strategies to minimize JavaScript sent to the client
+- Use client:only for components that should never render on the server
+- Leverage client:idle for non-critical UI elements that can wait until the browser is idle
+- Implement client:load for components that should hydrate immediately
+- Use Astro's transition:* directives for view transitions between pages
+- Leverage props for passing data from Astro to framework components
+
 
 ### Guidelines for REACT
 
@@ -74,35 +76,6 @@ GroceryList is an MVP application for creating grocery shopping lists based on r
 - Implement query invalidation strategies to keep data fresh after mutations
 
 
-### Guidelines for ASTRO
-
-#### ASTRO_ISLANDS
-
-- Use client:visible directive for components that should hydrate when visible in viewport
-- Implement shared state with nanostores instead of prop drilling between islands
-- Use content collections for type-safe content management of structured content
-- Leverage client:media directive for components that should only hydrate at specific breakpoints
-- Implement partial hydration strategies to minimize JavaScript sent to the client
-- Use client:only for components that should never render on the server
-- Leverage client:idle for non-critical UI elements that can wait until the browser is idle
-- Implement client:load for components that should hydrate immediately
-- Use Astro's transition:* directives for view transitions between pages
-- Leverage props for passing data from Astro to framework components
-
-#### ASTRO_CODING_STANDARDS
-
-- Use Astro components (.astro) for static content and layout
-- Implement framework components in {{framework_name}} only when interactivity is needed
-- Leverage View Transitions API for smooth page transitions
-- Use content collections with type safety for blog posts, documentation, etc.
-- Implement middleware for request/response modification
-- Use image optimization with the Astro Image integration
-- Leverage Server Endpoints for API routes
-- Implement hybrid rendering with server-side rendering where needed
-- Use Astro.cookies for server-side cookie management
-- Leverage import.meta.env for environment variables
-
-
 ### Guidelines for STYLING
 
 #### TAILWIND
@@ -118,44 +91,50 @@ GroceryList is an MVP application for creating grocery shopping lists based on r
 - Use responsive variants (sm:, md:, lg:, etc.) for adaptive designs
 - Leverage state variants (hover:, focus:, active:, etc.) for interactive elements
 
-## BACKEND
+## CODING_PRACTICES
 
-### Guidelines for NODE
+### Guidelines for SUPPORT_LEVEL
 
-#### EXPRESS
+#### SUPPORT_BEGINNER
 
-- Use express-async-errors or wrap async route handlers in try/catch blocks to properly handle promise rejections and prevent server crashes
-- Implement middleware for cross-cutting concerns like logging, error handling, and authentication following the chain-of-responsibility pattern
-- Use helmet middleware to enhance API security with appropriate HTTP headers for {{security_requirements}}
-- Structure routes using the Router class and organize by resource or feature to maintain a clean separation of concerns
-- Implement rate limiting for public endpoints to prevent abuse and DoS attacks on {{critical_endpoints}}
-- Use environment-specific configuration with dotenv and never hardcode sensitive values like {{database_credentials}} or API keys
+- When running in agent mode, execute up to 3 actions at a time and ask for approval or course correction afterwards.
+- Write code with clear variable names and include explanatory comments for non-obvious logic. Avoid shorthand syntax and complex patterns.
+- Provide full implementations rather than partial snippets. Include import statements, required dependencies, and initialization code.
+- Add defensive coding patterns and clear error handling. Include validation for user inputs and explicit type checking.
+- Suggest simpler solutions first, then offer more optimized versions with explanations of the trade-offs.
+- Briefly explain why certain approaches are used and link to relevant documentation or learning resources.
+- When suggesting fixes for errors, explain the root cause and how the solution addresses it to build understanding. Ask for confirmation before proceeding.
+- Offer introducing basic test cases that demonstrate how the code works and common edge cases to consider.
 
-#### NEST
+### Guidelines for ARCHITECTURE
 
-- Use dependency injection for services to improve testability and maintainability following SOLID principles
-- Implement custom decorators for cross-cutting concerns to keep code DRY and maintain separation of business logic
-- Use interceptors for transforming the response data structure consistently for {{api_standards}}
-- Leverage NestJS Guards for authorization to centralize access control logic across {{protected_resources}}
-- Implement domain-driven design with modules that encapsulate related functionality and maintain clear boundaries
-- Use TypeORM or Mongoose with repository patterns to abstract database operations and simplify testing with mocks
+#### CLEAN_ARCHITECTURE
 
-#### FASTIFY
+- Strictly separate code into layers: entities, use cases, interfaces, and frameworks
+- Ensure dependencies point inward, with inner layers having no knowledge of outer layers
+- Implement domain entities that encapsulate {{business_rules}} without framework dependencies
+- Use interfaces (ports) and implementations (adapters) to isolate external dependencies
+- Create use cases that orchestrate entity interactions for specific business operations
+- Implement mappers to transform data between layers to maintain separation of concerns
 
-- Use the schema validation feature with JSON Schema to validate request and response payloads for {{api_endpoints}}
-- Implement the plugin system for modularizing application components and enabling code reuse across projects
-- Use fastify-swagger for automatic API documentation generation based on your schema definitions
-- Leverage the hooks system (onRequest, preHandler, onSend) for precise control over the request lifecycle
-- Use the reply.send() method consistently and avoid mixing with return statements to prevent hard-to-debug issues
-- Implement proper error handling with custom error classes and the setErrorHandler hook for {{error_types}}
 
-## DATABASE
+### Guidelines for STATIC_ANALYSIS
 
-### Guidelines for SQL
+#### ESLINT
 
-#### POSTGRES
+- Configure project-specific rules in eslint.config.js to enforce consistent coding standards
+- Use shareable configs like eslint-config-airbnb or eslint-config-standard as a foundation
+- Implement custom rules for {{project_specific_patterns}} to maintain codebase consistency
+- Configure integration with Prettier to avoid rule conflicts for code formatting
+- Use the --fix flag in CI/CD pipelines to automatically correct fixable issues
+- Implement staged linting with husky and lint-staged to prevent committing non-compliant code
 
-- Use connection pooling to manage database connections efficiently
-- Implement JSONB columns for semi-structured data instead of creating many tables for {{flexible_data}}
-- Use materialized views for complex, frequently accessed read-only data
+#### PRETTIER
+
+- Define a consistent .prettierrc configuration across all {{project_repositories}}
+- Configure editor integration to format on save for immediate feedback
+- Use .prettierignore to exclude generated files, build artifacts, and {{specific_excluded_patterns}}
+- Set printWidth based on team preferences (80-120 characters) to improve code readability
+- Configure consistent quote style and semicolon usage to match team conventions
+- Implement CI checks to ensure all committed code adheres to the defined style
 
