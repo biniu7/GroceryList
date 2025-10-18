@@ -1,6 +1,6 @@
 
 <project-idea>
-roceryList to aplikacja webowa umożliwiająca użytkownikom tworzenie list zakupów na podstawie przepisów kulinarnych przypisanych do kalendarza tygodniowego z podziałem na cztery typy posiłków dziennie (śniadanie, drugie śniadanie, obiad, kolacja). Aplikacja rozwiązuje problem czasochłonnego ręcznego tworzenia list zakupów i zapominania składników podczas zakupów.
+GroceryList to aplikacja webowa umożliwiająca użytkownikom tworzenie list zakupów na podstawie przepisów kulinarnych przypisanych do kalendarza tygodniowego z podziałem na cztery typy posiłków dziennie (śniadanie, drugie śniadanie, obiad, kolacja). Aplikacja rozwiązuje problem czasochłonnego ręcznego tworzenia list zakupów i zapominania składników podczas zakupów.
 </project-idea>
 
 Jestem programistą i analizuje pomysł na projekt, nad którym będę pracował w ramach kursu 10xDevs. Interesuje mnie analiza pod kątem poniższych kryteriów:
@@ -223,13 +223,13 @@ Wnioski koncowe zapisz do pliku @.ai/tech_stack_analysis.md
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 <tech-stack>
-- **Astro 5**
-- **React 19**
-- **TypeScript 5**
-- **Tailwind CSS 4** 
-- **Shadcn/ui** 
-- **Supabase**
-- **Node.js Adapter** 
+- Astro 5
+- React 19
+- TypeScript 5
+- Tailwind CSS 4 
+- Shadcn/ui
+- Supabase
+- Node.js Adapter
 </tech-stack>
 
 Dokonaj krytycznej lecz rzeczowej analizy czy <tech-stack> odpowiednio adresuje potrzeby @.ai/prd.md. Rozważ następujące pytania:

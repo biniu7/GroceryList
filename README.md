@@ -35,7 +35,8 @@ GroceryList is an MVP application that solves the time-consuming problem of manu
 - **[React 19](https://react.dev/)** - Interactive components using islands architecture
 - **[TypeScript 5](https://www.typescriptlang.org/)** - Type safety and developer experience
 
-### Styling
+### Stylininstall
+g
 - **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework with Vite plugin
 - **[Shadcn/ui](https://ui.shadcn.com/)** - Accessible UI component library (New York style)
 - **[Radix UI](https://www.radix-ui.com/)** - Unstyled, accessible component primitives
